@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func keyPressed(_ sender: UIButton) {
-        guard let titleLabel = sender.titleLabel?.text else {
+        guard let titleLabel = sender.currentTitle else {
             return
         }
         playSound(titleLabel)
@@ -32,7 +32,6 @@ class ViewController: UIViewController {
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player?.play()
-            
         } catch let error {
             print(error.localizedDescription)
         }
